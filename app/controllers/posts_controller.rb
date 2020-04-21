@@ -16,11 +16,10 @@ class PostsController < ApplicationController
   end
 
   post '/posts' do
-    post = Post.new(params)
+    post = Post.new(user_id: current_user.id, character: params[:character], quote: params[:quote])
     if post.save
       redirect "/posts/#{post.id}"
     else
-      binding.pry
       redirect "posts/new"
     end
   end
@@ -39,7 +38,7 @@ class PostsController < ApplicationController
   patch '/posts/:id' do
     @post = Post.find_by_id(params[:id])
     params.delete("_method")
-    if @post.update(params)
+    if @post.update(user_id: current_user.id, character: params[:character], quote: params[:quote])
       redirect "/posts/#{@post.id}"
     else
       redirect "/posts/#{@post.id}/edit"

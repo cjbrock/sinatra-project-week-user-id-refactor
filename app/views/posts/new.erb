@@ -1,13 +1,6 @@
 <h1>Give us your favorite character and quote!</h1>
 
 <form method="POST" action="/posts">
-  <select name="user_id">
-    <% @users.each do |user| %>
-      <option value="<%= user.id%>"> <%= user.name %></option>
-    <% end %>
-  </select><br />
-
-
 
   Character: <input type="text" name="character"><br />
   Quote:<textarea name="quote"></textarea><br />

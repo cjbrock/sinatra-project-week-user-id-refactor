@@ -4,15 +4,6 @@
 <h1>Edit your quote!</h1>
 
 <form method="POST" action="/posts/<%= @post.id %>">
-  <input type="hidden" id="hidden" name="_method" value="PATCH">
-
-  <select name="user_id">
-    <% @users.each do |user| %>
-      <option value="<%= user.id%>"> <%= user.name %></option>
-    <% end %>
-  </select><br />
-
-
 
   Character: <input type="text" name="character"><br />
   Quote:<textarea name="quote"></textarea><br />

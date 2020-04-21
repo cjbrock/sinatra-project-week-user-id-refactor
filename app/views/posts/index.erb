@@ -1,5 +1,7 @@
 <h1>Here are all your posts</h1>
 
+<h2>Would you like to <a href="/posts/new">create a post?</a></h2>
+
 <ul>
 <% @posts.each do |post| %>
   <li><a href="posts/<%=post.id%>"><%= post.character %> </a></li>
